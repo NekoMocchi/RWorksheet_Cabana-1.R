@@ -1,0 +1,127 @@
+---
+title: "RWorksheet_Cabaña#3a"
+author: "Anjelo Marco B. Cabaña"
+date: "2023-10-10"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+``` {r name, echo = TRUE}
+#1
+LETTERS
+letters
+
+#Based on the above vector LETTERS:
+#1a You need to produce a vector that contains the first 11 letters.
+Letters11 <- LETTERS[1:11]
+Letters11
+
+#1b Produce a vector that contains the odd numbered letters.
+Letter_Odd <- letters[seq(1,length(letters),by=2)]
+Letter_Odd
+
+#1c Produce a vector that contains the vowels
+LetterVowels <- LETTERS[c(1,5,9,15,21)]
+LetterVowels
+
+#Based on the above vector letters:
+#1d Produce a vector that contains the last 5 lowercase letters.
+last5letters <- letters[22:26]
+last5letters
+
+#1e Produce a vector that contains letters between 15 to 24 letters in lowercase.
+letters15to24 <- letters[15:24]
+letters15to24
+
+#2 Create a vector(not a dataframe) with the average temperatures in April for Tuguegarao City, Manila, Iloilo City, Tacloban, Samal Island, and Davao City. The average temperatures in Celcius are 42, 39, 34, 34, 30, and 27 degrees.
+ave_temp <- c(42,39,34,34,30,27) 
+ave_temp
+
+#2a
+Cities_vec <- c("Tuguegarao City", "Manila","Iloilo City","Tacloban","Samal Island","Davao City")
+Cities_vec
+
+#2b
+Temp <- c(42,39,34,34,30,27)
+Temp
+
+#2c
+CityTemp <- data.frame(Cities_vec,Temp)
+CityTemp
+
+#2d
+names(CityTemp) <- c("City","Temperature")
+CityTemp
+
+#2e
+str(CityTemp)
+# It displayed the output with 6 obs. of 2 variables and the class of it.
+
+#2f
+Row3_4 <- CityTemp[3:4,]
+Row3_4
+
+#2g
+High_Temp <- CityTemp[which.max(CityTemp$Temperature),]
+High_Temp
+
+Low_Temp <- CityTemp[which.min(CityTemp$Temperature),]
+Low_Temp
+
+#USING MATRICES
+#3 and a
+Matrix <- matrix(c(1:8,11:14),ncol = 4, nrow = 3)
+Matrix
+
+#3b
+Mtrix2 <- Matrix * 2
+Mtrix2
+
+#3c
+MtrixRow2 <- Matrix[2,]
+MtrixRow2
+
+#3d
+MtrixCol34 <- Mtrix2[c(1:2),c(3:4)]
+MtrixCol34
+
+#3e
+MtrixColRow <- Mtrix2[3, c(2:3)]
+MtrixColRow
+
+#3f
+MtrixCol4 <- Mtrix2[,4]
+MtrixCol4
+
+#3g
+dimnames(Mtrix2) <- list(c("isa","dalawa","tatlo"),c("uno","dos","tres","quatro"))
+
+#3h
+Matrix
+dim(Matrix) <- c(6,2)
+Matrix
+
+#USING ARRAYS
+
+#4 An array contains 1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1
+#4a
+ArrayNum <- array(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1),c(2,4,3))
+ArrayNum
+
+#4b
+dim(ArrayNum)
+
+#4c
+colnames(ArrayNum) <- c("A","B","C","D")
+ArrayNum
+
+rownames(ArrayNum) <- c("a","b")
+ArrayNum
+
+dimnames(ArrayNum)[[3]] <- c("1st-Dimensional Array","2nd-Dimensional Array","3rd-Dimensional Array")
+
+
+```
