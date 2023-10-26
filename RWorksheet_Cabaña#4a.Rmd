@@ -47,5 +47,55 @@ Shoe_SizeHeight_Data <- data.frame(
 #1c
    Mean_Shoe_SizeHeight <-mean(Shoe_Size$Height)
    
+#1d
    
-)
+
+#2)
+factor_months_vector <- factor(c("March","April","January","November","January","September","October","September","November","August","January","November","November","February","May","August","July","December","August","August","September","November","February","April"))
+print(factor_months_vector)
+
+
+#3)
+
+
+#4)
+new_order_data <- factor(factor_data,levels= c("East","West","North"))
+print(new_order_data)
+
+
+#5)
+
+
+#5a
+
+
+#5b
+
+
+#6)
+
+
+#6a
+
+
+#7)
+
+
+#7a
+
+
+#8)
+
+
+#8a
+
+
+#8b
+
+
+#8c
+
+
+#8d
+
+
