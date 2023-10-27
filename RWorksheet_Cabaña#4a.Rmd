@@ -31,71 +31,177 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 ```{r}
 #1) Create a data frame
-#1a
-Shoe_SizeHeight_Data <- data.frame(
+ShoeSizeHeight_Data <- data.frame(
   Respondents = c(1:28),
-  Sex = c("F","F","F","F","M","F","F","F","M","F","M","F","M","M",
+  Gender = c("F","F","F","F","M","F","F","F","M","F","M","F","M","M",
           "M","M","F","F","M","F","F","M","M","F","M","M","M","M")
   
   Shoe_Size = c("6.5","9.0","8.5","8.5","10.5","7.0","9.5","9.0","13.0","7.5","10.5","8.5","12.0","10.5","13.0","11.5","8.5","5.0","10.0","6.5","7.5","8.5","10.5","8.5","10.5","11.0","9.0","13.0")
   
   Height = c("66.0","68.0","64.5","65.0","70.0","64.0","70.0","71.0","72.0","64.0","74.5","67.0","71.0","71.0","77.0","72.0","59.0","62.0","72.0","66.0","64.0","67.0","73.0","69.0","72.0","70.0","69.0","70.0")
+)
+ShoeSizeHeight_Data
+
+names(ShoesSizeHeight_Data) <- c("Shoe_Size","Height","Gender")
+ShoeSizeHeight_Data
+
+#1a) The male's shoe size and height is higher than the female's counterpart
 
 #1b
-  
-  
+Male_SH <- subset(ShoeSizeHeight_Data, Gender == 'M')
+
+Female_SH <- subset(ShoeSizeHeight_Data, Gender == 'F')
+
 #1c
-   Mean_Shoe_SizeHeight <-mean(Shoe_Size$Height)
-   
-#1d
-   
+Mean_SH <-mean(ShoeSizeHeight_Data$Shoe_Size &ShoeSizeHeight_Data$Height)
+Mean_SH
+
+#1d Is there a relationship between shoe size and height? Why?
+# Yes, because if your height is whether tall or short, it will affect what your shoe size too.
 
 #2)
-factor_months_vector <- factor(c("March","April","January","November","January","September","October","September","November","August","January","November","November","February","May","August","July","December","August","August","September","November","February","April"))
-print(factor_months_vector)
-
+Months <- c("March","April","January","November","January","September","October","September","November","August","January","November","November","February","May","August","July","December","August","August","September","November","February","April")
+factor_months_vector <- factor(Months)
+factor_months_vector
 
 #3)
-
+summary(Months)
+summary(factor_months_vector)
+# The result displays how many months are put in the  vector and display how many duplicate months are there. It also displays their data type.
 
 #4)
-new_order_data <- factor(factor_data,levels= c("East","West","North"))
+Direction <- c("East","West","North")
+Frequency <- c(1,4,3)
+
+factorDirec <- factor(Direction)
+factorDirec
+
+factorFreq <- factor(Frequency)
+factorFreq
+
+new_order_data <- factor(factorDirec,levels = c("East","West","North"))
 print(new_order_data)
 
+new_order_data2 <- factor(factorFreq,levels = c(1,4,3))
+print(new_order_data2)
 
 #5)
-
-
 #5a
-
+Exceldata <- read.csv("import_march.csv")
 
 #5b
+Exceldata
 
+#6) Full Search
+NumberInput <- readline(prompt="Enter number from 1 to 50:
+                         ")
+if(NumberInput>50){
+  print("The number is beyond the range of 1 to 50")
+}else{
+  print("TRUE")
+}
 
-#6)
+#7 Change
+MinimumPrice <- function(price) {
+  
+  MinPrice <- price %/% 50
+  paste("The minimum no. of bills:", MinPrice)
+}
 
+MinimumPrice(90)
 
-#6a
-
-
-#7)
-
-
-#7a
-
-
-#8)
-
-
-#8a
-
+#8a Create a data frame
+MathGrades <- data.frame(
+    Name = c("Annie","Thea","Steve","Hanna"),
+    Grades1 = c(85,65,75,95),
+    Grades2 = c(65,75,55,75),
+    Grades3 = c(85,90,80,100),
+    Grades4 = c(100,90,85,90)
+)
+MathGrades
 
 #8b
+MathGrades$Average <- (MathGrades$Grades1 + MathGrades$Grades2 + MathGrades$Grades3 + MathGrades$Grades4) / 4
 
+HighGrades <-  MathGrades[MathGrades$Average > 90, ]
+
+if(nrow(HighGrades)>0){
+  print(HighGrades$Name,"'s average grade this semester is:",HighGrades)
+}else{
+  print("There are no students that got 90 average grades")
+}
 
 #8c
+ AverageScores <- colMeans(MathGrades[, -1]) 
 
-
+if (AverageScores[1] < 80) {
+    print("The 1st test was difficult.\n")
+}else if (AverageScores[2] < 80) {
+    print("The 2nd test was difficult.\n")
+}else if (AverageScores[3] < 80) {
+    print("The 3rd test was difficult.\n")
+}else if (AverageScores[4] < 80) {
+    print("The 4th test was difficult.\n")
+}else{
+  print("There was no test that the students find difficult")
+}
+ 
 #8d
+#Annie score
+ 
+if (MathGrades[1,2] > MathGrades[1,3] && MathGrades[1,2] > MathGrades[1,4] && MathGrades[1,2] > MathGrades[1,5]) {
+  AnniesScore <- MathGrades[1,2]
+} else if (MathGrades[1,3] > MathGrades[1,4] && MathGrades[1,3] > MathGrades[1,5]) {
+  AnniesScore <- MathGrades[1,3]
+} else if (MathGrades[1,4] > MathGrades[1,5] && MathGrades[1,2] > MathGrades[1,5]) {
+  AnniesScore <- MathGrades[1,4]
+} else {
+  AnniesScore <- MathGrades[1,5]
+}
+
+# Thea scores
+if (MathGrades[2,2] > MathGrades[2,3] && MathGrades[2,2] >MathGrades[2,4] && MathGrades[2,2] > MathGrades[2,5]) {
+  TheasScore <- MathGrades[2,2]
+} else if (MathGrades[2,3] > MathGrades[2,4] &&MathGrades[2,3] > MathGrades[2,5]) {
+  TheasScore <- MathGrades[2,3]
+} else if (MathGrades[2,4] > MathGrades[2,5] && MathGrades[2,2] > MathGrades[2,5]) {
+  TheasScore <- MathGrades[2,4]
+} else {
+  TheasScore <-MathGrades[2,5]
+}
+
+# Steve scores
+if (MathGrades[3,2] > MathGrades[3,3] &&MathGrades[3,2] > MathGrades[3,4] && MathGrades[3,2] >MathGrades[3,5]) {
+  StevesScore <- MathGrades[3,2]
+} else if (MathGrades[3,3] > MathGrades[3,4] && MathGrades[3,3] > MathGrades[3,5]) {
+ StevesScore <- MathGrades[2,3]
+} else if (MathGrades[3,4] > MathGrades[3,5] && MathGrades[3,2] > MathGrades[3,5]) {
+  StevesScore <- MathGrades[3,4]
+} else {
+  StevesScore <- MathGrades[3,5]
+}
+
+# Hanna scores
+if (MathGrades[4,2] > MathGrades[4,3] && MathGrades[4,2] > MathGrades[4,4] && MathGrades[4,2] > MathGrades[4,5]) {
+  HannasScore <- MathGrades[4,2]
+} else if (MathGrades[4,3] > MathGrades[4,4] && MathGrades[4,3] > MathGrades[4,5]) {
+  HannasScore <- MathGrades[2,3]
+} else if (MathGrades[4,4] > MathGrades[4,5] && MathGrades[4,2] > MathGrades[4,5]) {
+  HannasScore <- MathGrades[4,4]
+} else {
+  HannasScore <- MathGrades[4,5]
+}
+
+MathGrades$HighestGrades <- c(AnniesScore, TheasScore, StevesScore, HannasScore)
+
+Highest90 <- MathGrades[MathGrades$HighestGrades > 90,]
+Highest90
+
+if (nrow(Highest90) > 0) {
+  paste(Highest90$Name, "'s highest grade this semester is", highest90$HighestGrade)
+} else {
+  paste("No students got an average math score over 90.")
+}
 
 
+```
