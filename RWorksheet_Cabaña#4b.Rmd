@@ -31,7 +31,8 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 ```{r}
 
-#1)
+#1) Using the for loop, create an R script that will display a 5x5 matrix as shown in Figure 1. It must contain vectorA = [1,2,3,4,5] and a 5 x 5 zero matrix.
+
 vectorA <- matrix(1:5,5,5)
 for (i in seq_len(nrow(vectorA))) {
   for (j in seq_len(ncol(vectorA))) {
@@ -39,14 +40,137 @@ for (i in seq_len(nrow(vectorA))) {
   }
 }
 
-#2)
-mat <- matrix(data = seq(as.numeric("*","*"),nrow = 5, nocl = 5)
-mat
+```
+```{r}
+#2) Print the string "*" using for() function. The output should be the same as shown in the Figure.
 
-
-#3)
-input <- as.numeric(prompt)
-
+for(i in 1:5)
+  cat(paste0("\"",rep("*",i),"\""),"\n")
 
 
 ```
+```{r}
+#3) Get an input from the user to print the Fibonacci sequence starting from the 1st input up to 500. Use repeat and break statements. Write the R Scripts and its output.
+
+num <- as.numeric(readline("Enter a number: "))
+a <-0
+b <-1
+
+repeat {
+  if(a > 500){
+    break
+  }
+  print(a)
+  c <- a + b
+  a <- b
+  b <- c
+}
+```
+
+```{r}
+#4)
+
+#4a
+
+
+
+
+#4b
+
+
+
+
+
+
+#4c
+
+
+
+
+
+#5)
+
+
+
+
+#6)
+
+
+
+
+
+#6a
+
+
+
+
+
+#6b
+
+
+
+
+
+#6c
+
+
+
+
+
+
+#6d
+
+
+
+
+
+#6e
+
+
+
+
+
+
+
+
+
+#6f
+
+
+
+
+
+
+
+#7)
+
+
+
+
+
+
+#7a
+
+
+
+
+#7b
+
+
+
+
+
+#7c
+
+
+
+
+
+
+#7d
+
+
+
+
+
+
