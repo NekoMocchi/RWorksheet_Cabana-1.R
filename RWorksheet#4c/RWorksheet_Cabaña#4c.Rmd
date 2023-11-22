@@ -1,0 +1,46 @@
+---
+title: "RWorksheet_Cabaña#4c"
+author: "Anjelo Marco B. Cabaña"
+date: "2023-11-22"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1)
+```{r}
+mtcars
+
+
+
+
+
+```
+
+
+2)
+```{r}
+
+
+
+
+```
+
+
+3)
+```{r}
+
+
+
+
+
+```
+
+4)
+```{r}
+
+
+
+```
