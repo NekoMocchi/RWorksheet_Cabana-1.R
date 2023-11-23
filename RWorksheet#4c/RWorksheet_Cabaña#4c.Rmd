@@ -9,28 +9,26 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-1)
-```{r}
-mtcars
-A data frame with 234 rows and 11 variables:
-#’ \describe{
-#’ \item{manufacturer}{manufacturer name}
-#’ \item{model}{model name}
-#’ \item{displ}{engine displacement, in litres}
-#’ \item{year}{year of manufacture}
-#’ \item{cyl}{number of cylinders}
-#’ \item{trans}{type of transmission}
-#’ \item{drv}{the type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = 4wd}
-#’ \item{cty}{city miles per gallon}
-#’ \item{hwy}{highway miles per gallon}
-#’ \item{fl}{fuel type}
-#’ \item{class}{"type" of car}
-#’ }
-"mpg"
+1) Use the dataset mpg
 
+1a) Show your solutions on how to import a csv file into the environment.
+```{r}
+
+mpgdata <- read.csv("mpg.csv")
 
 ```
 
+1b) Which variables from mpg dataset are categorical?
+```{r}
+str(mpg)
+
+```
+
+1c) Which are continuous variables?
+```{r}
+f <- ggplot(mpg, aes(class, hwy))
+
+```
 
 2)
 ```{r}
@@ -39,7 +37,6 @@ A data frame with 234 rows and 11 variables:
 
 
 ```
-
 
 3)
 ```{r}
