@@ -13,28 +13,45 @@ knitr::opts_chunk$set(echo = TRUE)
 
 1a) Show your solutions on how to import a csv file into the environment.
 ```{r}
-
 mpgdata <- read.csv("mpg.csv")
 
 ```
 
 1b) Which variables from mpg dataset are categorical?
 ```{r}
-str(mpg)
+categorical_vars <- c("manufacturer", "model", "trans", "drv", "fl", "class")
+categorical_vars
 
 ```
 
 1c) Which are continuous variables?
 ```{r}
-f <- ggplot(mpg, aes(class, hwy))
+continuous_vars <- c("displ", "year", "cyl", "cty", "hwy")
+continuous_vars
 
 ```
 
-2)
+2a)
 ```{r}
+library(dplyr)
 
+manufacturer_models <- mpg %>%
+  group_by(manufacturer) %>%
+  summarise(num_models = n_distinct(model)) %>%
+  arrange(desc(num_models))
 
+manufacturer_models[1, ]
 
+```
+
+2b)
+```{r}
+library(ggplot2)
+
+ggplot(manufacturer_models, aes(x = manufacturer, y = num_models)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(title = "Number of Models by Manufacturer", x = "Manufacturer", y = "Number of Models") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
 
